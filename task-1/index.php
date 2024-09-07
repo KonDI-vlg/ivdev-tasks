@@ -1,19 +1,25 @@
 <?php
 require_once __DIR__ . '/logic.php';
 ?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Оценки</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
 <body>
 <table>
     <tr>
         <th>#</th>
-        <?php foreach ($lessons as $lesson){
+        <?php foreach ($allUniqueLessons as $lesson){
             echo '<th>'.$lesson.'</th>';
         }
         ?>
     </tr>
-    <?php foreach ($students_stats as $student => $stats){
+    <?php foreach ($studentsWithMarks as $student => $stats){
         echo '<tr>';
         echo '<td>'.$student.'</td>';
-        foreach ($lessons as $lesson){
+        foreach ($allUniqueLessons as $lesson){
             if (empty($stats[$lesson])){
                 echo '<td>0</td>';
             }
