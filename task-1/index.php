@@ -27,7 +27,8 @@
                             <td class="col"><?= 0 ?></td>
                         <?php else: ?>
                             <td class="col"><?= $stats[$uniqueLesson] ?></td>
-                        <?php endif;
+                        <?php
+                        endif;
                     endforeach ?>
                 </tr>
             <?php endforeach ?>

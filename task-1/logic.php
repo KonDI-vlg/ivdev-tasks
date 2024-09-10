@@ -20,9 +20,11 @@ foreach ($data as $line) {
         $studentsWithMarks[$line[0]][$line[1]] = 0;
     }
     $studentsWithMarks[$line[0]][$line[1]] += $line[2];
-    $allUniqueLessons[] = $line[1];
+    if (in_array($line[1], $allUniqueLessons))
+    {
+        $allUniqueLessons[] = $line[1];
+    }
 }
 
-$allUniqueLessons = array_unique($allUniqueLessons);
 ksort($studentsWithMarks);
 sort($allUniqueLessons);
