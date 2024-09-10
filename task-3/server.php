@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 if (isset($_POST['send__input']) && !empty(trim($_POST['send__input']))) {
-    $comment = htmlspecialchars($_POST["send__input"]);
+    $comment = $_POST["send__input"];
     CommentsTable::insertComment($comment);
 
     header("Location:index.php");

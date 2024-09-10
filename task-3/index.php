@@ -32,7 +32,7 @@ $cnt = count($comments);
                 <tbody>
                 <?php foreach ($comments as $comment): ?>
                     <tr class="row mb-1">
-                        <td class="col"><?= nl2br($comment['comment'] )?></td>
+                        <td class="col"><?= nl2br(htmlspecialchars($comment['comment'] ))?></td>
                     </tr>
                 <?php endforeach ?>
                 </tbody>
