@@ -1,12 +1,5 @@
 <?php
 
-function vardump($var) {
-    echo '<pre>';
-    var_dump($var);
-    echo '</pre>';
-}
-
-
 $text = <<<TXT
 <p class="big">
     Год основания:<b>1589 г.</b> Волгоград отмечает день города в <b>2-е воскресенье сентября</b>. <br>В <b>2023 году</b> эта дата - <b>10 сентября</b>.
@@ -56,7 +49,8 @@ foreach ($allTags[0] as $i => $tag){
         $lengthBetweenTags = $allTags[0][$i+1][1] - $tag[1] - strlen($tag[0]);
 
         foreach ($splitText as $word){
-            if($lengthBetweenTags - strlen($word) < 0 || $cntWords == 29){
+            echo $lengthBetweenTags.' - '.mb_strlen($word).nl2br(PHP_EOL);
+            if($lengthBetweenTags - mb_strlen($word) < -1 || $cntWords == 29){
                 break;
             }
             $result[] = $word;
@@ -64,7 +58,7 @@ foreach ($allTags[0] as $i => $tag){
                 $cntWords++;
             }
             array_shift($splitText);
-            $lengthBetweenTags = $lengthBetweenTags - strlen($word);
+            $lengthBetweenTags = $lengthBetweenTags - mb_strlen($word);
         }
     } else {
         $result[] = $tag[0];
@@ -72,4 +66,4 @@ foreach ($allTags[0] as $i => $tag){
 }
 
 $result = implode(" ", $result);
-echo html_entity_decode($result);
+
