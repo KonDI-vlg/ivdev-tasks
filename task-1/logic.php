@@ -20,7 +20,7 @@ foreach ($data as $line) {
         $studentsWithMarks[$line[0]][$line[1]] = 0;
     }
     $studentsWithMarks[$line[0]][$line[1]] += $line[2];
-    if (in_array($line[1], $allUniqueLessons))
+    if (!in_array($line[1], $allUniqueLessons))
     {
         $allUniqueLessons[] = $line[1];
     }
